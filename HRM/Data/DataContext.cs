@@ -15,8 +15,8 @@ namespace HRM.Data
             optionsBuilder.UseSqlServer("Server=.;Database=HRM;Trusted_Connection=true;TrustServerCertificate=true");
         }
 
-        public DbSet<Employee> Assets { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
-        public DbSet<Department> Users { get; set; }
+        public DbSet<Department> Departments { get; set; }
     }
 }
