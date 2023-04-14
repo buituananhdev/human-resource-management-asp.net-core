@@ -11,14 +11,33 @@ namespace HRM.Services.DepartmentService
         {
             _context = context;
         }
-        public Task<List<Department>> AddDepartment(Department department)
+
+        public async Task<Department?> GetSingleDepartment(string id)
         {
-            throw new NotImplementedException();
+            var departments = await _context.Departments.FindAsync(id);
+            if(departments is null)
+            {
+                return null;
+            }
+            return departments;
         }
 
-        public Task<List<Department>?> DeleteDepartment(string id)
+        public async Task<List<Department>> AddDepartment(Department department)
         {
-            throw new NotImplementedException();
+            _context.Departments.Add(department);
+            await _context.SaveChangesAsync();
+            return Departments;
+        }
+
+        public async Task<List<Department>?> DeleteDepartment(string id)
+        {
+            var department = await _context.Departments.FindAsync(id);
+            if(department is null)
+            {
+                return null;
+            }
+            _context.Remove(department);
+            return Departments;
         }
 
         public async Task<List<Department>> GetAllDepartments()
@@ -27,9 +46,17 @@ namespace HRM.Services.DepartmentService
             return departments;
         }
 
-        public Task<List<Department>?> UpdateDepartment(string id, Department request)
+        public async Task<List<Department>?> UpdateDepartment(string id, Department request)
         {
-            throw new NotImplementedException();
+            var department = await _context.Departments.FindAsync(id);
+            if(department is null)
+            {
+                return null;
+            }
+            department.department_id = request.department_id;
+            department.department_name = request.department_name;
+            await _context.SaveChangesAsync();
+            return Departments;
         }
     }
 }

@@ -18,8 +18,21 @@ namespace HRM.Controllers
 
         public async Task<IActionResult> GetAllDepartments()
         {
-            List<Department> departments = await _departmentService.GetAllDepartments();
+            var departments = await _departmentService.GetAllDepartments();
             return View(departments);
+        }
+
+        public async Task<IActionResult> GetSingleDepartment(string id)
+        {
+            var result = await _departmentService.GetSingleDepartment(id);
+            return View(result);
+        }
+
+        public async Task<IActionResult> AddDepartment(Department request)
+        {
+            request.department_id = Guid.NewGuid().ToString();
+            var result = await _departmentService.AddDepartment(request);
+            return View(result);
         }
 
         public async Task<IActionResult> Index()
