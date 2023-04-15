@@ -1,21 +1,18 @@
-﻿@model List<Department>
+﻿
+@{
+    Layout = null;
+}
 
-<h2>List of Departments</h2>
+<!-- Trong View của bạn -->
+@model List<Department>
 
-<table>
-    <thead>
-        <tr>
-            <th>Department ID</th>
-            <th>Department Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var department in Model)
-        {
-                        <tr>
-                            <td>@department.department_id</td>
-                            <td>@department.department_name</td>
-                        </tr>
-        }
-    </tbody>
-</table>
+@foreach (var department in Model)
+{
+        <div>
+            <h3>@department.department_name</h3>
+                        <form method="delete" action="@Url.Action("DeleteDepartment", "Department", new { departmentId = department.department_id })">
+            @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa phòng ban này không?')">Xóa</button>
+            </form>
+        </div>
+}

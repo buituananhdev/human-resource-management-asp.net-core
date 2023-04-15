@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XgeSeIFz5SjpDZV17Qy4QWMrMo5wV2Dd/JJCH/wrN1A=",
+  "Hash": "1bBkOhlcNFw5J09g75GmFxENvEfW5opc5GNGbmOQ/94=",
   "Source": "HRM",
   "BasePath": "_content/HRM",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HRM.styles.css",
-      "SourceId": "HRM",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/HRM",
-      "RelativePath": "HRM.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HRM.styles.css"
-    },
-    {
-      "Identity": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HRM.bundle.scp.css",
-      "SourceId": "HRM",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/HRM",
-      "RelativePath": "HRM.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HRM.bundle.scp.css"
-    },
     {
       "Identity": "D:\\WorkSpace\\C#\\HRM\\HRM\\wwwroot\\css\\site.css",
       "SourceId": "HRM",

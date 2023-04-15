@@ -37,6 +37,7 @@ namespace HRM.Services.DepartmentService
                 return null;
             }
             _context.Remove(department);
+            await _context.SaveChangesAsync();
             return Departments;
         }
 

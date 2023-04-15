@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "D:\\WorkSpace\\C#\\HRM\\HRM\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HRM.bundle.scp.css",
-      "PackagePath": "staticwebassets\\HRM.bundle.scp.css"
-    },
-    {
       "Id": "D:\\WorkSpace\\C#\\HRM\\HRM\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
