@@ -12,15 +12,20 @@ namespace HRM.Controllers
             _EmployeeService = EmployeeService;
         }
 
-        public async Task<IActionResult> GetAllEmployees(string searchValue = "")
+        public async Task<IActionResult> GetAllEmployees(string searchValue = "", string department_id = "")
         {
             var employees = await _EmployeeService.GetAllEmployees();
+            if(!string.IsNullOrEmpty(department_id))
+            {
+                employees = employees.Where(e => e.department_id == department_id).ToList();
+            }
             if(string.IsNullOrEmpty(searchValue))
             {
                 employees = employees.Where(e =>
                     e.employee_name.ToLower().Contains(searchValue.ToLower()) ||
-                    e.address.ToLower().Contains(searchValue.ToLower())).ToList();
-
+                    e.address.ToLower().Contains(searchValue.ToLower()) ||
+                    e.phone_number.ToLower().Contains(searchValue.ToLower()) ||
+                    e.position.ToLower().Contains(searchValue.ToLower())).ToList();
             }
             return View(employees);
         }
