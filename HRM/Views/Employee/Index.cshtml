@@ -1,1 +1,127 @@
-﻿<h1>Hello</h1>
+﻿@model List<HRM.Models.Employee>
+@*<link href="~/Shared/styles.css" rel="stylesheet" type="text/css" />*@
+
+<style>
+    html,
+    body {
+        height: 100%; /* độ cao của body và html cùng bằng 100% */
+        margin: 0; /* bỏ các margin */
+        padding: 0; /* bỏ các padding */
+        overflow: auto; /* bật tính năng scroll */
+        box-sizing: border-box;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .table {
+        min-width: 1000px !important;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+        .table tbody tr {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .table .thead-dark th {
+            color: #fff;
+            background-color: #343a40;
+            border-color: #454d55;
+        }
+
+        .table thead th {
+            border: none;
+            padding: 30px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table tbody tr {
+            margin-bottom: 10px;
+            -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+            -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+            box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+        }
+
+        .table tbody th,
+        .table tbody td {
+            border: none;
+            padding: 30px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+    .alert {
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .box-add {
+        width: 100%;
+        text-align: end;
+    }
+
+    .add {
+        border: none;
+        list-style: none;
+        background-color: #fff;
+        box-shadow: 3px 3px 10px 2px #d8d3d3;
+        border-radius: 5px;
+        text-align: end;
+    }
+
+</style>
+<h2>List of Employees</h2>
+<div class="container">
+    <div class="row justify-content-center">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-wrap">
+                <div class="box-add">
+                    <a href="Employee/AddEmployee" class="add">+ Thêm nhân viên</a>
+                </div>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID Employee</th>
+                            <th>Employee Name</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Employee in Model)
+                        {
+                            <tr class="alert">
+                                <td>@Employee.employee_id</td>
+                                <td>@Employee.employee_name</td>
+                                <td>
+                                    <a asp-action="UpdateEmployee" asp-route-id="@Employee.employee_id">Edit</a>
+                                    <a asp-action="GetSingleEmployee" asp-route-id="@Employee.employee_id">Detail</a>
+                                    <a onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" asp-action="DeleteEmployee" asp-route-id="@Employee.employee_id">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
