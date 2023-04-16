@@ -84,7 +84,7 @@
             <input asp-for="department_name" class="form-control" />
             <span asp-validation-for="department_name" class="text-danger"></span>
         </div> 
-          <button type="submit" value="Save"onclick="return confirm('Bạn có chắc muốn cập nhật phòng ban này không?')" class="blockquote">Cập nhật</button>
+          <button type="submit" value="Save" onclick="return confirmAction()" class="blockquote">Cập nhật</button>
     </form>
     <div>
         <a asp-action="Index" class="back">Quay lại Danh sách phòng ban</a>
@@ -96,9 +96,13 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-        <script>
-                function redirectToIndex() {
-                    window.location.href = '@Url.Action("Index", "Department")';
-                }
-            </script>
 }
+<script>
+function confirmAction() {
+    if (confirm("Bạn có chắc muốn cập nhật phòng ban này không?")) {
+            window.location.href = '@Url.Action("UpdateDepartment", "Department")';
+        alert("Bạn đã cập nhật thành công!");
+           window.location.href = '@Html.ActionLink("Index", "Department")';
+    }
+}
+</script>

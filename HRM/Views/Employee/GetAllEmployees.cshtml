@@ -107,17 +107,17 @@
                     <tbody>
                         @foreach (var Employee in Model)
                         {
-                            <tr class="alert">
-                                <td>@Employee.employee_id</td>
-                                <td>@Employee.employee_name</td>
-                                <td>
-                                    <a asp-action="UpdateEmployee" asp-route-id="@Employee.employee_id">Edit</a>
-                                    <a asp-action="GetSingleEmployee" asp-route-id="@Employee.employee_id">Detail</a>
-                                    <a onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" asp-action="DeleteEmployee" asp-route-id="@Employee.employee_id">
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr class="alert">
+                                    <td>@Employee.employee_id</td>
+                                    <td>@Employee.employee_name</td>
+                                    <td>
+                                        <a asp-action="UpdateEmployee" asp-route-id="@Employee.employee_id">Edit</a>
+                                        <a asp-action="GetSingleEmployee" asp-route-id="@Employee.employee_id">Detail</a>
+                                        <a onclick="return confirm('Bạn có chắc muốn xóa nhân viên này không?')" asp-action="DeleteEmployee" asp-route-id="@Employee.employee_id">
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
                         }
                     </tbody>
                 </table>

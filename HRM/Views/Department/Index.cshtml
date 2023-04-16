@@ -66,15 +66,18 @@ ul li {
 }
 .add{
     border: none;
-    list-style: none;
+    /* list-style: none; */
     background-color: #fff;
     box-shadow: 3px 3px 10px 2px #d8d3d3;
     border-radius: 5px;
     text-align: end;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
 }
 
 </style>
-<h2>List of Departments</h2>
+<h2 class="title">Danh sách các phòng ban</h2>
 <div class="container">
     <div class="row justify-content-center">
     </div>
@@ -88,9 +91,9 @@ ul li {
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Department</th>
-                            <th>Department Name</th>
-                            <th>action</th>
+                            <th>ID Phòng ban</th>
+                            <th>Tên phòng ban</th>
+                            <th>Chức năng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,10 +103,10 @@ ul li {
                                         <td>@department.department_id</td>
                                         <td>@department.department_name</td>
                                         <td>
-                                            <a asp-action="UpdateDepartment" asp-route-id="@department.department_id">Edit</a> 
-                                            <a asp-action="GetSingleDepartment" asp-route-id="@department.department_id">Detail</a> 
-                                            <a onclick="return confirm('Bạn có chắc muốn xóa phòng ban này không?')"  asp-action="DeleteDepartment" asp-route-id="@department.department_id">
-                                              Delete  </a>                                        
+                                            <a asp-action="UpdateDepartment" asp-route-id="@department.department_id">Cập nhật  </a> <br>
+                                                <a asp-action="GetSingleDepartment" asp-route-id="@department.department_id">Danh sách  </a> <br>
+                                                <a onclick="confirmAction()"  asp-action="DeleteDepartment" asp-route-id="@department.department_id">
+                                              Xóa </a>                                        
                                         </td>
                                      </tr>
                                     }
@@ -113,3 +116,11 @@ ul li {
         </div>
     </div>
 </div>
+<script>
+function confirmAction() {
+    if (confirm("Bạn có chắc muốn xóa phòng ban này không?")) {
+            window.location.href = '@Url.Action("DeleteDepartment", "Department")';
+        alert("Bạn đã xóa thành công!");
+    }
+}
+</script>
