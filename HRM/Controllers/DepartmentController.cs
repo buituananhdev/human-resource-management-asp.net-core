@@ -17,9 +17,13 @@ namespace HRM.Controllers
             _departmentService = departmentService;
         }
 
-        public async Task<IActionResult> GetAllDepartments()
+        public async Task<IActionResult> GetAllDepartments(string searchValue = "")
         {
             var departments = await _departmentService.GetAllDepartments();
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                departments = departments.Where(d => d.department_name.ToLower().Contains(searchValue.ToLower())).ToList();
+            }
             return View(departments);
         }
 
