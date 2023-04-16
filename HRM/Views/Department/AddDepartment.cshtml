@@ -85,7 +85,7 @@
             <input asp-for="department_name" class="form-control" />
             <span asp-validation-for="department_name" class="text-danger"></span>
         </div>
-          <button type="submit" onclick="redirectToIndex()" onclick="return confirm('Bạn có chắc muốn thêm phòng ban này không?')" class="blockquote">Add Department</button>
+          <button type="submit" onclick="return alert('Bạn đã thêm thành công!')" class="blockquote">Add Department</button>
     </form>
     <div>
         <a asp-action="Index" class="back">Back to List</a>
@@ -95,9 +95,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-            function redirectToIndex() {
-                window.location.href = '@Url.Action("Index", "Department")';
-            }
-        </script>
 }
+<script>

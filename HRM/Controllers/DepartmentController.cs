@@ -29,8 +29,7 @@ namespace HRM.Controllers
 
         public async Task<IActionResult> GetSingleDepartment(string id)
         {
-            var result = await _departmentService.GetSingleDepartment(id);
-            return View(result);
+           return RedirectToAction("GetAllEmployees", "Employee", new { department_id = id });
         }
 
         public async Task<IActionResult> AddDepartment(Department request)
