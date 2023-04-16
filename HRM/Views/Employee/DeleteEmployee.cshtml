@@ -1,0 +1,31 @@
+﻿@{
+	ViewData["Title"] = "DeleteEmployee";
+}
+
+<h1>DeleteEmployee</h1>
+
+@model List<Employee>
+
+@*<form method="post" asp-action="DeleteEmployee">
+	<input asp-for="Employee_id" hidden />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Delete Category</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Employee_name"></label>
+			<input asp-for="Employee_name" disabled class="form-control" />
+		</div>
+		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+		<a asp-controller="Employee" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+	</div>
+</form>*@
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
