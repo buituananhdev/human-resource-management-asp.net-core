@@ -60,6 +60,19 @@ ul li {
     border: 1px solid transparent;
     border-radius: 0.25rem;
 }
+.box-add{
+    width: 100%;
+    text-align: end;
+}
+.add{
+    border: none;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px 2px #d8d3d3;
+    border-radius: 5px;
+    text-align: end;
+}
+
 </style>
 <h2>List of Departments</h2>
 <div class="container">
@@ -68,8 +81,10 @@ ul li {
     <div class="row">
         <div class="col-md-12">
             <div class="table-wrap">
-                 <a hef="~/Department/AddDepartment" >Add Department</a>
-                 <a href="@Url.Action("AddDepartment","Department")">Thêm phòng ban</a>
+                <div class="box-add">
+                    <a href="Department/AddDepartment" class="add">+ Thêm phòng ban</a>
+                </div>
+                 
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -87,7 +102,7 @@ ul li {
                                         <td>
                                             <a asp-action="UpdateDepartment" asp-route-id="@department.department_id">Edit</a> 
                                             <a asp-action="GetSingleDepartment" asp-route-id="@department.department_id">Detail</a> 
-                                            <a asp-action="DeleteDepartment" asp-route-id="@department.department_id">
+                                            <a onclick="return confirm('Bạn có chắc muốn xóa phòng ban này không?')"  asp-action="DeleteDepartment" asp-route-id="@department.department_id">
                                               Delete  </a>                                        
                                         </td>
                                      </tr>

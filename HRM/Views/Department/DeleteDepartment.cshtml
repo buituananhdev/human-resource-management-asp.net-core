@@ -5,16 +5,15 @@
 
 <h1>DeleteDepartment</h1>
 
-@model Department
+@model List<Department>
 
-<form method="post" asp-action="DeleteDepartment">
+@*<form method="post" asp-action="DeleteDepartment">
 	<input asp-for="department_id" hidden />
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
 			<h2 class="text-primary">Delete Category</h2>
 			<hr />
 		</div>
-		@*<div asp-validation-summary="All"></div>*@
 		<div class="mb-3">
 			<label asp-for="department_name"></label>
 			<input asp-for="department_name" disabled class="form-control" />
@@ -24,7 +23,7 @@
 			Back to List
 		</a>
 	</div>
-</form>
+</form>*@
 
 @section Scripts{
 	@{

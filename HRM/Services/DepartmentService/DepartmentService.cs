@@ -31,12 +31,14 @@ namespace HRM.Services.DepartmentService
 
         public async Task<List<Department>?> DeleteDepartment(string id)
         {
+            
             var department = await _context.Departments.FindAsync(id);
             if(department is null)
             {
                 return null;
             }
             _context.Remove(department);
+            await _context.SaveChangesAsync();
             return await _context.Departments.ToListAsync();
         }
 
