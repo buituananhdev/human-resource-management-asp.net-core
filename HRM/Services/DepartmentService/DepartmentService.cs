@@ -55,7 +55,6 @@ namespace HRM.Services.DepartmentService
             {
                 return null;
             }
-            /*department.department_id = request.department_id;*/
             department.department_name = request.department_name;
             await _context.SaveChangesAsync();
             return await _context.Departments.ToListAsync();

@@ -32,15 +32,13 @@ namespace HRM.Controllers
         public async Task<IActionResult> AddDepartment(Department request)
         {
             request.department_id = Guid.NewGuid().ToString();
-            if (string.IsNullOrEmpty(request.department_name))
-                return View();
-            var result = await _departmentService.AddDepartment(request);
-            /*return RedirectToAction("Index");*/
-            if(request.department_name != null)
+            if (!string.IsNullOrEmpty(request.department_name))
             {
+                await _departmentService.AddDepartment(request);
                 RedirectToAction("Index");
+                return View(request);
             }
-            return View(request);
+            return View();
         }
         public async Task<IActionResult> DeleteDepartment(string id)
         {

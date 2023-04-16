@@ -12,7 +12,7 @@ namespace HRM.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=HRM;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=.;Database=HRM;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
         }
 
         public DbSet<Employee> Employees { get; set; }

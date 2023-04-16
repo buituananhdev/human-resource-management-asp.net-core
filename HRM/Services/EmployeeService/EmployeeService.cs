@@ -1,5 +1,6 @@
 ﻿using HRM.Data;
 using HRM.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HRM.Services.EmployeeService
 {
@@ -15,29 +16,58 @@ namespace HRM.Services.EmployeeService
             _context = context;
         }
 
-        public Task<List<Employee>> AddEmployee(Employee organization)
+        public async Task<List<Employee>> AddEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            _context.Employees.Add(employee);
+            await _context.SaveChangesAsync();
+            return Employees;
         }
 
-        public Task<List<Employee>?> DeleteEmployee(string id)
+        public async Task<List<Employee>?> DeleteEmployee(string id)
         {
-            throw new NotImplementedException();
+            var employee = await _context.Employees.FindAsync(id);
+            if(employee is null)
+            {
+                return null;
+            }
+            _context.Remove(employee);
+            await _context.SaveChangesAsync();
+            return await _context.Employees.ToListAsync();
         }
 
-        public Task<List<Employee>> GetAllEmployees()
+        public async Task<List<Employee>> GetAllEmployees()
         {
-            throw new NotImplementedException();
+            var employees = await _context.Employees.ToListAsync();
+            return employees;
         }
 
-        public Task<List<Employee>> GetSingleEmployee(string id)
+        public async Task<Employee> GetSingleEmployee(string id)
         {
-            throw new NotImplementedException();
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee is null)
+            {
+                return null;
+            }
+            return employee;
         }
 
-        public Task<List<Employee>?> UpdateEmployee(string id, Employee request)
+        public async Task<List<Employee>> UpdateEmployee(string id, Employee request)
         {
-            throw new NotImplementedException();
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee is null)
+            {
+                return null;
+            }
+            employee.employee_name = request.employee_name;
+            employee.address = request.address;
+            employee.phone_number = request.phone_number;
+            employee.base_salary = request.base_salary;
+            employee.coefficients_salary = employee.coefficients_salary;
+            employee.position = employee.position;
+            employee.department_id = employee.department_id;
+
+            await _context.SaveChangesAsync();
+            return Employees;
         }
     }
 }
