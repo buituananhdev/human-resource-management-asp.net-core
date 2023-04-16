@@ -90,6 +90,16 @@
             <div class="form-group">
                 <label asp-for="employee_name" class="control-label blockquote">Tên nhân viên:</label>
                 <input asp-for="employee_name" class="form-control" />
+                <label asp-for="phone_number" class="control-label blockquote">SĐT</label>
+                <input asp-for="phone_number" class="form-control" />
+                <label asp-for="address" class="control-label blockquote">Địa chỉ</label>
+                <input asp-for="address" class="form-control" />
+                <label asp-for="coefficients_salary" class="control-label blockquote">Hệ số lương</label>
+                <input asp-for="coefficients_salary" class="form-control" />
+                <label asp-for="base_salary" class="control-label blockquote">Lương cơ bản</label>
+                <input asp-for="base_salary" class="form-control" />
+                <label asp-for="position" class="control-label blockquote">Chức vụ</label>
+                <input asp-for="position" class="form-control" />
                 <span asp-validation-for="employee_name" class="text-danger"></span>
             </div>
             <button type="submit" value="Save" onclick="return confirm('Bạn có chắc muốn cập nhật nhân viên này không?')" class="blockquote">Cập nhật</button>
