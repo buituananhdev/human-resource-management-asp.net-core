@@ -30,6 +30,11 @@ namespace HRM.Services.EmployeeService
             throw new NotImplementedException();
         }
 
+        public Task<List<Employee>> GetSingleEmployee(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Employee>?> UpdateEmployee(string id, Employee request)
         {
             throw new NotImplementedException();

@@ -26,7 +26,7 @@ namespace HRM.Services.DepartmentService
         {
             _context.Departments.Add(department);
             await _context.SaveChangesAsync();
-            return Departments;
+            return await _context.Departments.ToListAsync() ;
         }
 
         public async Task<List<Department>?> DeleteDepartment(string id)
@@ -37,7 +37,7 @@ namespace HRM.Services.DepartmentService
                 return null;
             }
             _context.Remove(department);
-            return Departments;
+            return await _context.Departments.ToListAsync();
         }
 
         public async Task<List<Department>> GetAllDepartments()
@@ -53,10 +53,10 @@ namespace HRM.Services.DepartmentService
             {
                 return null;
             }
-            department.department_id = request.department_id;
+            /*department.department_id = request.department_id;*/
             department.department_name = request.department_name;
             await _context.SaveChangesAsync();
-            return Departments;
+            return await _context.Departments.ToListAsync();
         }
     }
 }

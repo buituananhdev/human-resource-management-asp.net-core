@@ -1,21 +1,100 @@
-﻿@model List<Department>
+﻿@model List<HRM.Models.Department>
+@*<link href="~/Shared/styles.css" rel="stylesheet" type="text/css" />*@
 
+<style>
+html,
+body {
+    height: 100%; /* độ cao của body và html cùng bằng 100% */
+    margin: 0; /* bỏ các margin */
+    padding: 0; /* bỏ các padding */
+    overflow: auto; /* bật tính năng scroll */
+    box-sizing: border-box;
+}
+ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.table {
+    min-width: 1000px !important;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+.table tbody tr {
+        margin-bottom: 10px;
+        cursor: pointer;
+}
+    .table .thead-dark th {
+        color: #fff;
+        background-color: #343a40;
+        border-color: #454d55;
+    }
+    .table thead th {
+        border: none;
+        padding: 30px;
+        font-size: 14px;
+        color: #fff;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+    .table tbody tr {
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+        -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+        box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    }
+    .table tbody th, 
+    .table tbody td {
+        border: none;
+        padding: 30px;
+        font-size: 14px;
+        background: #fff;
+    }
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+</style>
 <h2>List of Departments</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Department ID</th>
-            <th>Department Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var department in Model)
-        {
+<div class="container">
+    <div class="row justify-content-center">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-wrap">
+                 <a hef="~/Department/AddDepartment" >Add Department</a>
+                 <a href="@Url.Action("AddDepartment","Department")">Thêm phòng ban</a>
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>@department.department_id</td>
-                            <td>@department.department_name</td>
+                            <th>ID Department</th>
+                            <th>Department Name</th>
+                            <th>action</th>
                         </tr>
-        }
-    </tbody>
-</table>
+                    </thead>
+                    <tbody>
+                        @foreach (var department in Model)
+                                    {
+                                    <tr class="alert">
+                                        <td>@department.department_id</td>
+                                        <td>@department.department_name</td>
+                                        <td>
+                                            <a asp-action="UpdateDepartment" asp-route-id="@department.department_id">Edit</a> 
+                                            <a asp-action="GetSingleDepartment" asp-route-id="@department.department_id">Detail</a> 
+                                            <a asp-action="DeleteDepartment" asp-route-id="@department.department_id">
+                                              Delete  </a>                                        
+                                        </td>
+                                     </tr>
+                                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

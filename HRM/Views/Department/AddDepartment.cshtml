@@ -1,0 +1,41 @@
+﻿@*@model HRM.Models.Department
+
+@{
+    ViewData["Title"] = "AddDepartment";
+}
+
+<h1>AddDepartment</h1>
+
+<h4>Department</h4>
+<hr />*@
+
+@model Department;
+<style>
+</style>
+<h2 class="text-center">Add Department</h2>
+
+<form asp-action="AddDepartment" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="department_id"  class="control-label"></label>
+        <input asp-for="department_id"  class="form-control" />
+        <span asp-validation-for="department_id" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="department_name" class="control-label"></label>
+        <input asp-for="department_name" class="form-control" />
+        <span asp-validation-for="department_name" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Add Department</button>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

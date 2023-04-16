@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using HRM.Models;
 using HRM.Services;
 using HRM.Services.DepartmentService;
+using Azure.Core;
 
 namespace HRM.Controllers
 {
@@ -30,9 +31,20 @@ namespace HRM.Controllers
 
         public async Task<IActionResult> AddDepartment(Department request)
         {
-            request.department_id = Guid.NewGuid().ToString();
+            /*request.department_id = Guid.NewGuid().ToString();*/
             var result = await _departmentService.AddDepartment(request);
-            return View(result);
+            /*return RedirectToAction("Index");*/
+            return View(request);
+        }
+        public async Task<IActionResult> DeleteDepartment(string id)
+        {
+            await _departmentService.DeleteDepartment(id);
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> UpdateDepartment(string id, Department request)
+        {
+            var result = await _departmentService.UpdateDepartment(id, request);
+            return View(request);
         }
 
         public async Task<IActionResult> Index()
